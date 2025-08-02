@@ -4,27 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manuel d'Utilisation - NOTE AI</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
+            /* === COULEURS PRINCIPALES === */
             --primary-color: #3B82F6;
-            --primary-light: #93C5FD;
-            --primary-lighter: #DBEAFE;
-            --primary-dark: #2563EB;
-            --secondary-color: #1F2937;
+            --primary-color-light: #93C5FD;
+            --primary-color-dark: #2563EB;
+            --primary-color-darker: #1D4ED8;
+            --primary-color-darkest: #1E40AF;
+            
+            /* === COULEURS SECONDAIRES === */
+            --secondary-blue: #3B82F6;
+            --secondary-blue-light: #60A5FA;
+            --secondary-blue-dark: #1D4ED8;
+            
+            --secondary-purple: #8B5CF6;
+            --secondary-purple-light: #A78BFA;
+            --secondary-purple-dark: #7C3AED;
+            
+            --secondary-orange: #F59E0B;
+            --secondary-orange-light: #FCD34D;
+            --secondary-orange-dark: #D97706;
+            
+            /* === COULEURS SÉMANTIQUES === */
             --success-color: #22C55E;
+            --success-light: #86EFAC;
+            --success-dark: #16A34A;
+            --success-bg: #DCFCE7;
+            
             --warning-color: #F59E0B;
-            --danger-color: #EF4444;
+            --warning-light: #FCD34D;
+            --warning-dark: #D97706;
+            --warning-bg: #FEF3C7;
+            
+            --error-color: #EF4444;
+            --error-light: #F87171;
+            --error-dark: #DC2626;
+            --error-bg: #FEE2E2;
+            
+            --info-color: #06B6D4;
+            --info-light: #67E8F9;
+            --info-dark: #0891B2;
+            --info-bg: #CFFAFE;
+            
+            /* === COULEURS NEUTRES === */
             --text-color: #1F2937;
-            --text-muted: #6B7280;
-            --background: #FAFBFF;
-            --card-bg: #FFFFFF;
-            --border-color: #E5E7EB;
-            --border-radius: 0.75rem;
-            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-            --font-family: 'Inter', sans-serif;
+            --text-color-light: #6B7280;
+            --text-color-lighter: #9CA3AF;
+            --text-color-dark: #111827;
+            
+            --background-color: #FAFBFF;
+            --background-secondary: #F8FAFF;
+            --background-white: #FFFFFF;
+            --background-gray: #F5F8FF;
+            
+            --border-color: #E2E8F0;
+            --border-color-light: #F1F5F9;
+            --border-color-dark: #CBD5E1;
+            
+            /* === DÉGRADÉS THÉMATIQUES === */
+            --gradient-primary: linear-gradient(135deg, #3B82F6 0%, #1F2937 100%);
+            --gradient-primary-light: linear-gradient(135deg, #DBEAFE 0%, #FFFFFF 100%);
+            --gradient-primary-soft: linear-gradient(135deg, #F5F8FF 0%, #DBEAFE 100%);
+            
+            --gradient-blue: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
+            --gradient-blue-light: linear-gradient(135deg, #DBEAFE 0%, #FFFFFF 100%);
+            
+            --gradient-glass: linear-gradient(135deg, 
+                rgba(255,255,255,0.4) 0%, 
+                rgba(255,255,255,0.1) 50%, 
+                rgba(255,255,255,0.05) 100%);
+            
+            /* === EFFETS LUSTRÉS AVANCÉS === */
+            --lustrous-primary: linear-gradient(145deg, 
+                rgba(255,255,255,0.4) 0%, 
+                var(--primary-color) 20%, 
+                var(--primary-color-dark) 80%, 
+                rgba(0,0,0,0.2) 100%);
+                
+            --lustrous-blue: linear-gradient(145deg, 
+                rgba(255,255,255,0.5) 0%, 
+                var(--secondary-blue) 20%, 
+                var(--secondary-blue-dark) 80%, 
+                rgba(0,0,0,0.2) 100%);
+            
+            /* === OMBRES === */
+            --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            
+            --shadow-primary: 0 4px 14px 0 rgba(59, 130, 246, 0.2);
+            --shadow-blue: 0 4px 14px 0 rgba(59, 130, 246, 0.2);
+            
+            /* === PROPRIÉTÉS TECHNIQUES === */
+            --animation-speed: 0.3s;
+            --animation-speed-fast: 0.15s;
+            --animation-speed-slow: 0.5s;
+            
+            --border-radius-xs: 0.25rem;
+            --border-radius-sm: 0.375rem;
+            --border-radius-md: 0.5rem;
+            --border-radius-lg: 0.75rem;
+            --border-radius-xl: 1rem;
         }
 
         * {
@@ -33,295 +116,198 @@
             box-sizing: border-box;
         }
 
+        /* === ANIMATIONS AVANCÉES === */
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.4); }
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        @keyframes slideInRight {
+            from { 
+                opacity: 0; 
+                transform: translateX(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0); 
+            }
+        }
+
         body {
-            font-family: var(--font-family);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            background-color: var(--background);
+            background: var(--background-color);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
+        /* Layout */
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
+            display: flex;
+            min-height: 100vh;
         }
 
-        .header {
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.3) 0%, #3B82F6 15%, #1F2937 85%, rgba(0, 0, 0, 0.4) 100%) !important;
-            padding: 35px 40px !important;
-            color: white !important;
-            text-align: center !important;
-            box-shadow: 0 8px 24px rgba(31, 41, 55, 0.35), inset 0 2px 0 rgba(255, 255, 255, 0.3), inset 0 -2px 0 rgba(0, 0, 0, 0.2), 0 0 30px rgba(59, 130, 246, 0.2) !important;
-            animation: fadeIn 0.8s ease-out, subtle-header-pulse 4s infinite !important;
-            border: 1px solid rgba(255, 255, 255, 0.2) !important;
-            position: relative !important;
-            overflow: hidden !important;
-            border-radius: var(--border-radius);
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 300px;
+            background-color: var(--background-white);
+            border-right: 1px solid var(--border-color);
+            padding: 2rem;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+        }
+
+        .sidebar h2 {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sidebar h2::before {
+            content: "📖";
+            font-size: 1.8rem;
+        }
+
+        .nav-section {
             margin-bottom: 2rem;
         }
-        
-        .header::before {
-            content: "";
-            position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
-            animation: header-shine 4s infinite;
-            z-index: 1;
-        }
-        
-        .header h1, .header p {
-            position: relative !important;
-            z-index: 2 !important;
+
+        .nav-section h3 {
+            color: var(--text-color);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem 0;
         }
 
-        .header h1 {
-            margin: 0 !important;
-            font-size: 2.5rem !important;
-            font-weight: 700 !important;
-            color: white !important;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.4) !important;
-            margin-bottom: 1rem !important;
+        .nav-link {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--text-color-light);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            margin-bottom: 0.25rem;
         }
 
-        .header p {
-            margin-top: 12px !important;
-            margin-bottom: 0 !important;
-            font-size: 1.2rem !important;
-            color: rgba(255, 255, 255, 0.95) !important;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
-            font-weight: 500 !important;
-            max-width: 800px;
-            margin-left: auto;
+        .nav-link:hover {
+            background-color: var(--primary-color-light);
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        .nav-link.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 300px;
+            flex: 1;
+            padding: 3rem;
+            max-width: 1200px;
             margin-right: auto;
         }
 
-        @keyframes subtle-header-pulse {
-            0% {
-                box-shadow: 0 8px 24px rgba(31, 41, 55, 0.35), inset 0 2px 0 rgba(255, 255, 255, 0.3), inset 0 -2px 0 rgba(0, 0, 0, 0.2), 0 0 30px rgba(59, 130, 246, 0.2);
-            }
-            50% {
-                box-shadow: 0 8px 24px rgba(31, 41, 55, 0.35), inset 0 2px 0 rgba(255, 255, 255, 0.3), inset 0 -2px 0 rgba(0, 0, 0, 0.2), 0 0 35px rgba(59, 130, 246, 0.3);
-            }
-            100% {
-                box-shadow: 0 8px 24px rgba(31, 41, 55, 0.35), inset 0 2px 0 rgba(255, 255, 255, 0.3), inset 0 -2px 0 rgba(0, 0, 0, 0.2), 0 0 30px rgba(59, 130, 246, 0.2);
-            }
-        }
-        
-        @keyframes header-shine {
-            0%, 50% { left: -100%; }
-            100% { left: 100%; }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .content {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            box-shadow: var(--shadow);
-            margin-bottom: 2rem;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 600;
+        /* Typography */
+        h1 {
+            color: var(--text-color-dark);
+            font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: var(--text-color);
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--primary-color);
         }
 
         h2 {
-            font-size: 1.875rem;
-            border-bottom: 3px solid var(--primary-light);
-            padding-bottom: 0.5rem;
-            margin-top: 2rem;
+            color: var(--text-color-dark);
+            font-size: 2rem;
+            margin-top: 3rem;
             margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         h3 {
+            color: var(--text-color-dark);
             font-size: 1.5rem;
-            color: var(--primary-dark);
-            margin-top: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
         }
 
         h4 {
-            font-size: 1.25rem;
-            color: var(--secondary-color);
-        }
-
-        h5 {
-            font-size: 1.1rem;
-            color: var(--text-color);
-            margin-top: 1rem;
-        }
-
-        p, ul, ol {
-            margin-bottom: 1rem;
-        }
-
-        ul, ol {
-            padding-left: 1.5rem;
-        }
-
-        li {
-            margin-bottom: 0.5rem;
-        }
-
-        .toc {
-            background: linear-gradient(135deg, var(--primary-lighter) 0%, var(--card-bg) 100%);
-            border: 1px solid var(--primary-light);
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .toc h2 {
-            color: var(--primary-dark);
-            margin-top: 0;
-            border: none;
-        }
-
-        .toc-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .toc-link {
             color: var(--primary-color);
-            text-decoration: none;
-            padding: 0.5rem;
-            border-radius: 0.5rem;
-            transition: all 0.3s;
-            display: block;
+            font-size: 1.25rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
         }
 
-        .toc-link:hover {
-            background-color: var(--primary-lighter);
-            transform: translateX(4px);
-        }
-
-        .info-card {
-            background: linear-gradient(135deg, var(--primary-lighter) 0%, var(--card-bg) 100%);
-            border: 1px solid var(--primary-light);
-            border-radius: var(--border-radius);
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            border-left: 4px solid var(--primary-color);
-        }
-
-        .info-card h4 {
-            color: var(--primary-dark);
-            margin-top: 0;
-        }
-
-        .warning-card {
-            background: linear-gradient(135deg, #FEF3C7 0%, var(--card-bg) 100%);
-            border: 1px solid var(--warning-color);
-            border-left: 4px solid var(--warning-color);
-        }
-
-        .success-card {
-            background: linear-gradient(135deg, #DCFCE7 0%, var(--card-bg) 100%);
-            border: 1px solid var(--success-color);
-            border-left: 4px solid var(--success-color);
-        }
-
-        .danger-card {
-            background: linear-gradient(135deg, #FEE2E2 0%, var(--card-bg) 100%);
-            border: 1px solid var(--danger-color);
-            border-left: 4px solid var(--danger-color);
-        }
-
-        .code-block {
-            background: var(--secondary-color);
-            color: #F9FAFB;
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            overflow-x: auto;
-            margin: 1rem 0;
-            white-space: pre-wrap;
-        }
-
-        .inline-code {
-            background: #E5E7EB;
-            color: var(--secondary-color);
-            padding: 0.2rem 0.4rem;
-            border-radius: 0.25rem;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-        }
-
-        .table-container {
-            overflow-x: auto;
-            margin: 1.5rem 0;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        th, td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        th {
-            background: var(--primary-lighter);
-            color: var(--primary-dark);
-            font-weight: 600;
-        }
-
-        tr:nth-child(even) {
-            background: #F8FAFC;
-        }
-
-        tr:hover {
-            background: var(--primary-lighter);
-        }
-
-        .emoji {
-            font-size: 1.2em;
-            margin-right: 0.5rem;
-        }
-
-        .contact-info {
-            background: linear-gradient(135deg, var(--secondary-color) 0%, #111827 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            text-align: center;
-        }
-
-        .contact-info h3 {
-            color: white;
+        p {
             margin-bottom: 1rem;
+            line-height: 1.8;
+            color: var(--text-color-light);
         }
 
-        .contact-details {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
+        /* === CARTES AMÉLIORÉES AVEC EFFETS LUSTRÉS === */
+        .card {
+            background: var(--gradient-primary-soft);
+            border-radius: var(--border-radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-md);
+            border-left: 4px solid var(--primary-color);
+            transition: all var(--animation-speed) ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
         }
 
-        .contact-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1rem;
-            border-radius: 0.5rem;
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
         }
 
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl), var(--shadow-primary);
+            background: var(--gradient-glass);
+        }
+
+        /* Feature Grid */
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -330,614 +316,887 @@
         }
 
         .feature-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius);
-            padding: 1.5rem;
-            transition: all 0.3s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Expert cards styles */
-        .expert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .expert-card {
-            background: linear-gradient(135deg, var(--card-bg) 0%, #f8f9fa 100%);
-            border: 1px solid var(--border-color);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            background: var(--gradient-glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--border-radius-xl);
+            padding: 2rem;
+            transition: all var(--animation-speed) ease;
+            box-shadow: var(--shadow-xl);
             position: relative;
             overflow: hidden;
         }
 
-        .expert-card::before {
-            content: '';
+        .feature-card::before {
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            background: var(--gradient-blue);
         }
 
-        .expert-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        .feature-card:hover {
+            transform: translateY(-8px) rotate(1deg);
+            box-shadow: var(--shadow-xl), 0 25px 50px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-color);
+            background: var(--gradient-blue-light);
         }
 
-        .expert-card h4 {
+        .feature-card h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card .icon {
+            font-size: 1.5rem;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: var(--text-color-light);
+        }
+
+        /* Code Blocks */
+        pre {
+            background-color: #1F2937;
+            color: #E5E7EB;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        code {
+            background-color: rgba(31, 41, 55, 0.1);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
             color: var(--primary-color);
-            margin-bottom: 8px;
-            font-size: 1.2em;
         }
 
-        .expert-experience {
-            color: var(--accent-color);
-            font-weight: 600;
-            font-size: 0.9em;
-            margin-bottom: 10px;
-            font-style: italic;
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+            background-color: var(--background-white);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
-        .expert-card .example {
-            background: rgba(74, 144, 226, 0.1);
-            border-left: 4px solid var(--primary-color);
-            padding: 10px;
-            margin-top: 15px;
-            border-radius: 0 8px 8px 0;
-            font-size: 0.9em;
-        }
-
-        .categories-list p {
-            margin: 10px 0;
-            padding: 8px 12px;
-            background: rgba(74, 144, 226, 0.05);
-            border-radius: 8px;
-            border-left: 3px solid var(--primary-color);
-        }
-
-        .footer {
-            background: var(--secondary-color);
+        th {
+            background-color: var(--primary-color);
             color: white;
-            text-align: center;
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            margin-top: 2rem;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
         }
 
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        tr:hover {
+            background-color: rgba(59, 130, 246, 0.05);
+        }
+
+        /* Alerts */
+        .alert {
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .alert-info {
+            background-color: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid var(--info-color);
+        }
+
+        .alert-success {
+            background-color: rgba(16, 185, 129, 0.1);
+            border-left: 4px solid var(--success-color);
+        }
+
+        .alert-warning {
+            background-color: rgba(245, 158, 11, 0.1);
+            border-left: 4px solid var(--warning-color);
+        }
+
+        .alert-danger {
+            background-color: rgba(239, 68, 68, 0.1);
+            border-left: 4px solid var(--error-color);
+        }
+
+        .alert-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        /* Workflow Diagram */
+        .workflow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 2rem 0;
+            padding: 2rem;
+            background-color: var(--background-white);
+            border-radius: 0.75rem;
+            overflow-x: auto;
+            box-shadow: var(--shadow-md);
+        }
+
+        .workflow-step {
+            text-align: center;
+            flex: 1;
+            position: relative;
+            padding: 1rem;
+        }
+
+        .workflow-step::after {
+            content: '→';
+            position: absolute;
+            right: -1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .workflow-step:last-child::after {
+            display: none;
+        }
+
+        .workflow-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--lustrous-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            box-shadow: 
+                var(--shadow-primary),
+                inset 0 2px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+            transition: all var(--animation-speed) ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
             }
-            
-            .header {
-                padding: 2rem 1rem;
+
+            .sidebar.active {
+                transform: translateX(0);
             }
-            
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .content {
+
+            .main-content {
+                margin-left: 0;
                 padding: 1.5rem;
             }
-            
-            .toc-grid {
+
+            .feature-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .contact-details {
-                grid-template-columns: 1fr;
+
+            .workflow {
+                flex-direction: column;
             }
+
+            .workflow-step::after {
+                display: none;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .sidebar {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .card {
+                break-inside: avoid;
+            }
+        }
+
+        /* Search Box */
+        .search-box {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 3rem;
+            border: 2px solid var(--border-color);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .search-box::before {
+            content: "🔍";
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+        }
+
+        /* Styles spécialisés pour NOTE AI */
+        .category-list {
+            background: var(--background-gray);
+            border-radius: var(--border-radius-md);
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .category-item {
+            padding: 0.5rem;
+            margin: 0.25rem 0;
+            border-left: 3px solid var(--primary-color);
+            background: var(--background-white);
+            border-radius: var(--border-radius-sm);
+        }
+
+        .note-example {
+            background: var(--success-bg);
+            border: 1px solid var(--success-color);
+            border-radius: var(--border-radius-md);
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        .note-bad-example {
+            background: var(--error-bg);
+            border: 1px solid var(--error-color);
+            border-radius: var(--border-radius-md);
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        .version-info {
+            background: var(--info-bg);
+            border-left: 4px solid var(--info-color);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: var(--border-radius-sm);
+        }
+
+        .step-card {
+            background: var(--gradient-primary-soft);
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid var(--primary-color);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <h1><span class="emoji">📖</span>MANUEL D'UTILISATION - NOTE AI</h1>
-            <p>Assistant Intelligent de Prise de Notes pour la Construction Québécoise</p>
-        </header>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <h2>NOTE AI</h2>
+        
+        <div class="search-box">
+            <input type="text" placeholder="Rechercher..." id="searchInput">
+        </div>
 
-        <div class="content">
-            <div class="toc">
-                <h2>Table des Matières</h2>
-                <div class="toc-grid">
-                    <a href="#vue-densemble" class="toc-link">1. Vue d'ensemble</a>
-                    <a href="#installation-et-configuration" class="toc-link">2. Installation et configuration</a>
-                    <a href="#interface-utilisateur" class="toc-link">3. Interface utilisateur</a>
-                    <a href="#fonctionnalites-principales" class="toc-link">4. Fonctionnalités principales</a>
-                    <a href="#types-de-documents-supportes" class="toc-link">5. Types de documents supportés</a>
-                    <a href="#generation-de-rapports" class="toc-link">6. Génération de rapports</a>
-                    <a href="#cas-dusage-pratiques" class="toc-link">7. Cas d'usage pratiques</a>
-                    <a href="#depannage" class="toc-link">8. Dépannage</a>
-                    <a href="#bonnes-pratiques" class="toc-link">9. Bonnes pratiques</a>
-                    <a href="#support-technique" class="toc-link">10. Support technique</a>
+        <div class="nav-section">
+            <h3>Démarrage</h3>
+            <a href="#vue-ensemble" class="nav-link">Vue d'ensemble</a>
+            <a href="#installation-configuration" class="nav-link">Installation et Configuration</a>
+            <a href="#interface-utilisateur" class="nav-link">Interface Utilisateur</a>
+        </div>
+
+        <div class="nav-section">
+            <h3>Fonctionnalités</h3>
+            <a href="#fonctionnalites-principales" class="nav-link">Fonctionnalités Principales</a>
+            <a href="#types-documents" class="nav-link">Types de Documents</a>
+            <a href="#generation-rapports" class="nav-link">Génération de Rapports</a>
+        </div>
+
+        <div class="nav-section">
+            <h3>Utilisation</h3>
+            <a href="#cas-usage" class="nav-link">Cas d'Usage Pratiques</a>
+            <a href="#bonnes-pratiques" class="nav-link">Bonnes Pratiques</a>
+        </div>
+
+        <div class="nav-section">
+            <h3>Support</h3>
+            <a href="#depannage" class="nav-link">Dépannage</a>
+            <a href="#support-technique" class="nav-link">Support Technique</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Vue d'ensemble -->
+        <section id="vue-ensemble">
+            <h1>📖 MANUEL D'UTILISATION - NOTE AI</h1>
+            
+            <div class="version-info">
+                <strong>Assistant Intelligent de Prise de Notes pour la Construction Québécoise</strong><br>
+                <strong>Version :</strong> 2.0.0<br>
+                <strong>Date :</strong> Janvier 2025<br>
+                <strong>Développé par :</strong> Sylvain Leduc<br>
+                <strong>Propulsé par :</strong> Claude Opus 4 - Anthropic
+            </div>
+
+            <h3>🎯 Qu'est-ce que NOTE AI ?</h3>
+            <p>NOTE AI est un assistant intelligent spécialement conçu pour les professionnels de la construction au Québec. Il utilise l'intelligence artificielle Claude Opus 4 d'Anthropic pour :</p>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4><span class="icon">🔍</span> Analyser automatiquement</h4>
+                    <p>Vos documents de chantier avec une compréhension contextuelle avancée</p>
+                </div>
+                <div class="feature-card">
+                    <h4><span class="icon">📷</span> Interpréter les photos</h4>
+                    <p>De construction avec expertise technique spécialisée</p>
+                </div>
+                <div class="feature-card">
+                    <h4><span class="icon">📄</span> Générer des rapports</h4>
+                    <p>Professionnels conformes aux normes québécoises</p>
+                </div>
+                <div class="feature-card">
+                    <h4><span class="icon">📋</span> Organiser vos notes</h4>
+                    <p>Par catégories de chantier pour un suivi optimal</p>
+                </div>
+                <div class="feature-card">
+                    <h4><span class="icon">✅</span> Assurer la conformité</h4>
+                    <p>Avec les exigences CCQ, RBQ et CNESST</p>
                 </div>
             </div>
 
-            <section id="vue-densemble">
-                <h2><span class="emoji">🎯</span>Vue d'ensemble</h2>
-                
-                <h3><span class="emoji">💡</span>Qu'est-ce que NOTE AI ?</h3>
-                
-                <p><strong>NOTE AI</strong> est un assistant intelligent spécialement conçu pour les professionnels de la construction au Québec. Il utilise l'intelligence artificielle Claude Opus 4 d'Anthropic pour :</p>
+            <h3>À qui s'adresse NOTE AI ?</h3>
+            <ul>
+                <li><strong>Entrepreneurs généraux</strong> : Coordination globale de projets</li>
+                <li><strong>Sous-traitants spécialisés</strong> : Rapports métier spécifiques</li>
+                <li><strong>Gestionnaires de projet</strong> : Suivi multi-chantiers</li>
+                <li><strong>Inspecteurs et surveillants</strong> : Documentation de conformité</li>
+                <li><strong>Chargés de projet</strong> : Communication client-équipe</li>
+            </ul>
 
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h4><span class="emoji">📋</span>Analyser automatiquement</h4>
-                        <p>Vos documents de chantier avec expertise technique intégrée</p>
-                    </div>
+            <h3>Avantages clés</h3>
+            <div class="card">
+                <ul>
+                    <li>✅ <strong>Spécialisé construction québécoise</strong> : Terminologie et normes intégrées</li>
+                    <li>✅ <strong>Analyse IA avancée</strong> : Compréhension contextuelle des documents</li>
+                    <li>✅ <strong>Interface intuitive</strong> : Optimisée pour utilisation terrain</li>
+                    <li>✅ <strong>Rapports professionnels</strong> : Conformes aux standards de l'industrie</li>
+                    <li>✅ <strong>Sécurité</strong> : Données traitées localement, confidentialité garantie</li>
+                </ul>
+            </div>
+        </section>
 
-                    <div class="feature-card">
-                        <h4><span class="emoji">📷</span>Interpréter les photos</h4>
-                        <p>De construction avec analyse contextuelle et recommandations</p>
-                    </div>
+        <!-- Installation et Configuration -->
+        <section id="installation-configuration">
+            <h2>⚙️ Installation et configuration</h2>
 
-                    <div class="feature-card">
-                        <h4><span class="emoji">📄</span>Générer des rapports</h4>
-                        <p>Professionnels conformes aux normes québécoises</p>
-                    </div>
+            <h3>Installation locale (Windows)</h3>
 
-                    <div class="feature-card">
-                        <h4><span class="emoji">📁</span>Organiser vos notes</h4>
-                        <p>Par catégories de chantier pour un suivi optimal</p>
-                    </div>
+            <div class="workflow">
+                <div class="workflow-step">
+                    <div class="workflow-icon">1</div>
+                    <h4>Prérequis</h4>
+                    <p>Python 3.8+ et connexion Internet</p>
                 </div>
-
-                <div class="info-card">
-                    <h4><span class="emoji">👥</span>À qui s'adresse NOTE AI ?</h4>
-                    <p><strong>Version :</strong> 2.0.0 • <strong>Date :</strong> Janvier 2025 • <strong>Développé par :</strong> Sylvain Leduc</p>
-                    <ul>
-                        <li><strong>Entrepreneurs généraux</strong> : Coordination globale de projets</li>
-                        <li><strong>Sous-traitants spécialisés</strong> : Rapports métier spécifiques</li>
-                        <li><strong>Gestionnaires de projet</strong> : Suivi multi-chantiers</li>
-                        <li><strong>Inspecteurs et surveillants</strong> : Documentation de conformité</li>
-                        <li><strong>Chargés de projet</strong> : Communication client-équipe</li>
-                    </ul>
+                <div class="workflow-step">
+                    <div class="workflow-icon">2</div>
+                    <h4>Installation</h4>
+                    <p>Double-clic sur Run.bat</p>
                 </div>
-
-                <div class="success-card">
-                    <h4><span class="emoji">✅</span>Avantages clés</h4>
-                    <ul>
-                        <li><strong>Spécialisé construction québécoise</strong> : Terminologie et normes intégrées</li>
-                        <li><strong>Analyse IA avancée</strong> : Compréhension contextuelle des documents</li>
-                        <li><strong>Interface intuitive</strong> : Optimisée pour utilisation terrain</li>
-                        <li><strong>Rapports professionnels</strong> : Conformes aux standards de l'industrie</li>
-                        <li><strong>Sécurité</strong> : Données traitées localement, confidentialité garantie</li>
-                    </ul>
+                <div class="workflow-step">
+                    <div class="workflow-icon">3</div>
+                    <h4>Lancement</h4>
+                    <p>Interface web automatique</p>
                 </div>
-            </section>
+            </div>
 
-            <section id="installation-et-configuration">
-                <h2><span class="emoji">⚙️</span>Installation et configuration</h2>
-                
-                <h3><span class="emoji">💻</span>Installation locale (Windows)</h3>
-                
-                <div class="info-card">
-                    <h4><span class="emoji">1️⃣</span>Prérequis</h4>
-                    <ul>
-                        <li><strong>Python 3.8+</strong> installé sur votre système</li>
-                        <li><strong>Connexion Internet</strong> pour télécharger les dépendances</li>
-                        <li><strong>Clé API Claude</strong> d'Anthropic</li>
-                    </ul>
-                </div>
+            <div class="step-card">
+                <h4>Étape 1 : Prérequis</h4>
+                <ul>
+                    <li><strong>Python 3.8+</strong> installé sur votre système</li>
+                    <li><strong>Connexion Internet</strong> pour télécharger les dépendances</li>
+                    <li><strong>Clé API Claude</strong> d'Anthropic</li>
+                </ul>
+            </div>
 
-                <div class="info-card">
-                    <h4><span class="emoji">2️⃣</span>Installation automatique</h4>
-                    <ol>
-                        <li>Téléchargez tous les fichiers du projet dans un dossier</li>
-                        <li><strong>Double-cliquez sur <span class="inline-code">Run.bat</span></strong></li>
-                        <li>Le script détecte automatiquement Python et installe les dépendances</li>
-                        <li>L'interface s'ouvre automatiquement dans votre navigateur</li>
-                    </ol>
-                </div>
+            <div class="step-card">
+                <h4>Étape 2 : Installation automatique</h4>
+                <ol>
+                    <li>Téléchargez tous les fichiers du projet dans un dossier</li>
+                    <li><strong>Double-cliquez sur <code>Run.bat</code></strong></li>
+                    <li>Le script détecte automatiquement Python et installe les dépendances</li>
+                    <li>L'interface s'ouvre automatiquement dans votre navigateur</li>
+                </ol>
+            </div>
 
-                <div class="info-card">
-                    <h4><span class="emoji">3️⃣</span>Installation manuelle (si nécessaire)</h4>
-                    <div class="code-block"># Installer les dépendances
+            <div class="step-card">
+                <h4>Étape 3 : Installation manuelle (si nécessaire)</h4>
+                <pre># Installer les dépendances
 pip install -r requirements.txt
 
 # Lancer l'application
-streamlit run app.py</div>
-                </div>
+streamlit run app.py</pre>
+            </div>
 
-                <h3><span class="emoji">🔑</span>Configuration API Claude</h3>
+            <h3>Configuration API Claude</h3>
 
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h4><span class="emoji">🌐</span>Obtenir votre clé API</h4>
-                        <ol>
-                            <li>Visitez <span class="inline-code">console.anthropic.com</span></li>
-                            <li>Créez un compte ou connectez-vous</li>
-                            <li>Allez dans "API Keys"</li>
-                            <li>Cliquez "Create Key"</li>
-                            <li>Copiez la clé complète (commence par <span class="inline-code">sk-ant-api03-</span>)</li>
-                        </ol>
-                    </div>
+            <div class="step-card">
+                <h4>Obtenir votre clé API</h4>
+                <ol>
+                    <li>Visitez <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a></li>
+                    <li>Créez un compte ou connectez-vous</li>
+                    <li>Allez dans "API Keys"</li>
+                    <li>Cliquez "Create Key"</li>
+                    <li>Copiez la clé complète (commence par <code>sk-ant-api03-</code>)</li>
+                </ol>
+            </div>
 
-                    <div class="feature-card">
-                        <h4><span class="emoji">⚙️</span>Méthodes de configuration</h4>
-                        <p><strong>Option 1 : Configuration dans l'interface</strong></p>
-                        <ul>
-                            <li>Lancez NOTE AI</li>
-                            <li>Dans la barre latérale, section "🔑 Configuration API"</li>
-                            <li>Collez votre clé dans le champ "Clé API Anthropic"</li>
-                            <li>Cliquez "💾 Configurer"</li>
-                        </ul>
-                    </div>
-                </div>
+            <h4>Méthodes de configuration</h4>
 
-                <div class="success-card">
-                    <h4><span class="emoji">🚀</span>Déploiement Hugging Face Spaces</h4>
-                    <p>NOTE AI est prêt pour le déploiement sur Hugging Face Spaces :</p>
-                    <ol>
-                        <li><strong>Créez un Space</strong> sur huggingface.co/spaces</li>
-                        <li><strong>Sélectionnez Streamlit</strong> comme SDK</li>
-                        <li><strong>Uploadez tous les fichiers</strong> du projet</li>
-                        <li><strong>Ajoutez votre clé API</strong> dans les Settings → Secrets</li>
-                    </ol>
-                </div>
-            </section>
-
-            <section id="interface-utilisateur">
-                <h2><span class="emoji">🖥️</span>Interface utilisateur</h2>
-                
-                <h3><span class="emoji">📋</span>Zone principale</h3>
-                
-                <p>L'interface est divisée en <strong>trois sections principales</strong> :</p>
-
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h4><span class="emoji">1️⃣</span>En-tête</h4>
-                        <ul>
-                            <li><strong>Titre de l'application</strong> avec design professionnel</li>
-                            <li><strong>Indicateur de statut</strong> de la connexion API</li>
-                        </ul>
-                    </div>
-
-                    <div class="feature-card">
-                        <h4><span class="emoji">2️⃣</span>Barre latérale (Contrôles)</h4>
-                        <ul>
-                            <li><strong>Configuration API</strong> (si nécessaire)</li>
-                            <li><strong>Ajout de notes de chantier</strong></li>
-                            <li><strong>Upload de documents</strong></li>
-                            <li><strong>Communications de chantier</strong></li>
-                            <li><strong>Génération de rapports</strong></li>
-                        </ul>
-                    </div>
-
-                    <div class="feature-card">
-                        <h4><span class="emoji">3️⃣</span>Zone de contenu (2 colonnes)</h4>
-                        <ul>
-                            <li><strong>Colonne gauche</strong> : Journal de chantier avec toutes vos notes</li>
-                            <li><strong>Colonne droite</strong> : Rapport généré avec options d'export</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <h3><span class="emoji">🧭</span>Navigation</h3>
-
-                <div class="info-card">
-                    <h4><span class="emoji">📋</span>Sections de la barre latérale</h4>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Option 1 : Interface</h4>
                     <ul>
-                        <li><strong>🎛️ Contrôles</strong> : Configuration et test de l'API Claude</li>
-                        <li><strong>📋 Notes de chantier</strong> : Ajout de notes textuelles par catégorie</li>
-                        <li><strong>📁 Documents de construction</strong> : Upload et analyse automatique de fichiers</li>
-                        <li><strong>📣 Communications de chantier</strong> : Ajout de notes vocales et directives</li>
-                        <li><strong>📄 Génération de rapports</strong> : Sélection du type de rapport</li>
+                        <li>Lancez NOTE AI</li>
+                        <li>Barre latérale → "🔑 Configuration API"</li>
+                        <li>Collez votre clé</li>
+                        <li>Cliquez "💾 Configurer"</li>
                     </ul>
                 </div>
 
-                <div class="success-card">
-                    <h4><span class="emoji">🎯</span>Interface optimisée</h4>
-                    <p>L'interface NOTE AI est spécialement conçue pour une utilisation terrain avec des champs contextuels (localisation, responsable) et un système de catégorisation intelligente.</p>
+                <div class="feature-card">
+                    <h4>Option 2 : Variable d'environnement</h4>
+                    <pre># Windows
+set ANTHROPIC_API_KEY=sk-ant-api03-votre-clé-ici
+
+# Linux/Mac
+export ANTHROPIC_API_KEY=sk-ant-api03-votre-clé-ici</pre>
                 </div>
-            </section>
 
-            <section id="fonctionnalites-principales">
-                <h2><span class="emoji">🚀</span>Fonctionnalités principales</h2>
-                
-                <h3><span class="emoji">1️⃣</span>Prise de notes intelligente</h3>
+                <div class="feature-card">
+                    <h4>Option 3 : Fichier .env</h4>
+                    <p>Créez un fichier <code>.env</code> dans le dossier du projet :</p>
+                    <pre>ANTHROPIC_API_KEY=sk-ant-api03-votre-clé-ici</pre>
+                </div>
+            </div>
 
-                <div class="info-card">
-                    <h4><span class="emoji">📋</span>Catégories de notes spécialisées</h4>
+            <h3>Déploiement Hugging Face Spaces</h3>
+            <div class="card">
+                <p>NOTE AI est prêt pour le déploiement sur Hugging Face Spaces :</p>
+                <ol>
+                    <li><strong>Créez un Space</strong> sur <a href="https://huggingface.co/spaces" target="_blank">huggingface.co/spaces</a></li>
+                    <li><strong>Sélectionnez Streamlit</strong> comme SDK</li>
+                    <li><strong>Uploadez tous les fichiers</strong> du projet</li>
+                    <li><strong>Ajoutez votre clé API</strong> dans Settings → Secrets :
+                        <ul>
+                            <li>Nom : <code>ANTHROPIC_API_KEY</code></li>
+                            <li>Valeur : votre clé API complète</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Interface Utilisateur -->
+        <section id="interface-utilisateur">
+            <h2>🖥️ Interface utilisateur</h2>
+
+            <h3>Zone principale</h3>
+            <p>L'interface est divisée en <strong>trois sections principales</strong> :</p>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>1. En-tête</h4>
                     <ul>
-                        <li><strong>Avancement des travaux</strong> : Progression, pourcentages, zones actives</li>
-                        <li><strong>Sécurité et conformité</strong> : Inspections, incidents, mesures correctives</li>
-                        <li><strong>Matériaux et livraisons</strong> : Réceptions, stocks, commandes</li>
-                        <li><strong>Main-d'œuvre et sous-traitants</strong> : Effectifs, heures, coordination</li>
-                        <li><strong>Conditions météo</strong> : Impact sur travaux, protections nécessaires</li>
-                        <li><strong>Problèmes et solutions</strong> : Défis, retards, actions correctives</li>
-                        <li><strong>Inspection et qualité</strong> : Contrôles, déficiences, corrections</li>
-                        <li><strong>Réunion de chantier</strong> : Décisions, actions, suivis</li>
-                        <li><strong>Autre</strong> : Notes diverses</li>
+                        <li>Titre de l'application avec design professionnel</li>
+                        <li>Indicateur de statut de la connexion API</li>
                     </ul>
                 </div>
 
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h4><span class="emoji">📍</span>Champs contextuels</h4>
-                        <ul>
-                            <li><strong>Localisation</strong> : Zone, étage, section du chantier</li>
-                            <li><strong>Responsable</strong> : Personne en charge, sous-traitant</li>
-                            <li><strong>Timestamp automatique</strong> : Date et heure précises</li>
-                        </ul>
-                    </div>
+                <div class="feature-card">
+                    <h4>2. Barre latérale (Contrôles)</h4>
+                    <ul>
+                        <li>Configuration API (si nécessaire)</li>
+                        <li>Ajout de notes de chantier</li>
+                        <li>Upload de documents</li>
+                        <li>Communications de chantier</li>
+                        <li>Génération de rapports</li>
+                    </ul>
                 </div>
 
-                <h3><span class="emoji">2️⃣</span>Analyse automatique de documents</h3>
+                <div class="feature-card">
+                    <h4>3. Zone de contenu (2 colonnes)</h4>
+                    <ul>
+                        <li><strong>Colonne gauche</strong> : Journal de chantier avec toutes vos notes</li>
+                        <li><strong>Colonne droite</strong> : Rapport généré avec options d'export</li>
+                    </ul>
+                </div>
+            </div>
 
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h4><span class="emoji">📷</span>Images de chantier</h4>
-                        <ul>
-                            <li>Analyse contextuelle des éléments de construction</li>
-                            <li>Identification des matériaux et équipements</li>
-                            <li>Évaluation de l'état d'avancement</li>
-                            <li>Détection des problèmes de conformité</li>
-                            <li>Recommandations pour le suivi</li>
-                        </ul>
-                    </div>
+            <h3>Sections de la barre latérale</h3>
 
-                    <div class="feature-card">
-                        <h4><span class="emoji">📄</span>Documents PDF</h4>
-                        <ul>
-                            <li>Extraction automatique du texte</li>
-                            <li>Analyse du contenu (plans, devis, rapports)</li>
-                            <li>Identification des exigences techniques</li>
-                            <li>Détection des normes applicables (CCQ, RBQ, CNB)</li>
-                        </ul>
-                    </div>
+            <div class="category-list">
+                <div class="category-item">
+                    <strong>🎛️ Contrôles</strong><br>
+                    Configuration et test de l'API Claude
+                </div>
+                <div class="category-item">
+                    <strong>📋 Notes de chantier</strong><br>
+                    Ajout de notes textuelles par catégorie<br>
+                    Champs localisation et responsable
+                </div>
+                <div class="category-item">
+                    <strong>📁 Documents de construction</strong><br>
+                    Upload et analyse automatique de fichiers<br>
+                    Support multi-formats
+                </div>
+                <div class="category-item">
+                    <strong>📣 Communications de chantier</strong><br>
+                    Ajout de notes vocales et directives<br>
+                    Types de communication spécialisés
+                </div>
+                <div class="category-item">
+                    <strong>📄 Génération de rapports</strong><br>
+                    Sélection du type de rapport<br>
+                    Options d'export
+                </div>
+            </div>
+        </section>
+
+        <!-- Fonctionnalités Principales -->
+        <section id="fonctionnalites-principales">
+            <h2>🚀 Fonctionnalités principales</h2>
+
+            <h3>1. Prise de notes intelligente</h3>
+
+            <h4>Catégories de notes spécialisées</h4>
+            <div class="category-list">
+                <div class="category-item"><strong>Avancement des travaux</strong> : Progression, pourcentages, zones actives</div>
+                <div class="category-item"><strong>Sécurité et conformité</strong> : Inspections, incidents, mesures correctives</div>
+                <div class="category-item"><strong>Matériaux et livraisons</strong> : Réceptions, stocks, commandes</div>
+                <div class="category-item"><strong>Main-d'œuvre et sous-traitants</strong> : Effectifs, heures, coordination</div>
+                <div class="category-item"><strong>Conditions météo</strong> : Impact sur travaux, protections nécessaires</div>
+                <div class="category-item"><strong>Problèmes et solutions</strong> : Défis, retards, actions correctives</div>
+                <div class="category-item"><strong>Inspection et qualité</strong> : Contrôles, déficiences, corrections</div>
+                <div class="category-item"><strong>Réunion de chantier</strong> : Décisions, actions, suivis</div>
+                <div class="category-item"><strong>Autre</strong> : Notes diverses</div>
+            </div>
+
+            <h4>Champs contextuels</h4>
+            <ul>
+                <li><strong>Localisation</strong> : Zone, étage, section du chantier</li>
+                <li><strong>Responsable</strong> : Personne en charge, sous-traitant</li>
+                <li><strong>Timestamp automatique</strong> : Date et heure précises</li>
+            </ul>
+
+            <h3>2. Analyse automatique de documents</h3>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>📷 Images de chantier</h4>
+                    <ul>
+                        <li>Analyse contextuelle des éléments de construction</li>
+                        <li>Identification des matériaux et équipements</li>
+                        <li>Évaluation de l'état d'avancement</li>
+                        <li>Détection des problèmes de conformité</li>
+                        <li>Recommandations pour le suivi</li>
+                    </ul>
                 </div>
 
-                <h3><span class="emoji">3️⃣</span>Génération de rapports professionnels</h3>
-
-                <div class="expert-grid">
-                    <div class="expert-card">
-                        <h4><span class="emoji">📅</span>Rapport journalier de chantier</h4>
-                        <ul>
-                            <li>Conditions météo et impact</li>
-                            <li>Avancement des travaux par zone</li>
-                            <li>Main-d'œuvre présente (CCQ)</li>
-                            <li>Matériaux livrés et utilisés</li>
-                            <li>Problèmes rencontrés et solutions</li>
-                            <li>Planification du lendemain</li>
-                        </ul>
-                    </div>
-
-                    <div class="expert-card">
-                        <h4><span class="emoji">🦺</span>Rapport de sécurité CNESST</h4>
-                        <ul>
-                            <li>Inspection des équipements</li>
-                            <li>Conformité aux normes</li>
-                            <li>Identification des risques</li>
-                            <li>Mesures correctives appliquées</li>
-                            <li>Formation du personnel</li>
-                            <li>Recommandations SST</li>
-                        </ul>
-                    </div>
-
-                    <div class="expert-card">
-                        <h4><span class="emoji">📊</span>Rapport de projet complet</h4>
-                        <ul>
-                            <li>État d'avancement global</li>
-                            <li>Respect du budget et échéancier</li>
-                            <li>Qualité et conformité</li>
-                            <li>Gestion des changements</li>
-                            <li>Analyse des risques</li>
-                            <li>Prochaines étapes critiques</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section id="types-de-documents-supportes">
-                <h2><span class="emoji">📁</span>Types de documents supportés</h2>
-                
-                <h3><span class="emoji">🖼️</span>Images et photos</h3>
-                
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Format</th>
-                                <th>Description</th>
-                                <th>Cas d'usage</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>JPG/JPEG</strong></td>
-                                <td>Photos standard</td>
-                                <td>Photos de chantier, avancement</td>
-                            </tr>
-                            <tr>
-                                <td><strong>PNG</strong></td>
-                                <td>Images haute qualité</td>
-                                <td>Plans scannés, détails techniques</td>
-                            </tr>
-                            <tr>
-                                <td><strong>GIF</strong></td>
-                                <td>Images animées</td>
-                                <td>Séquences de construction</td>
-                            </tr>
-                            <tr>
-                                <td><strong>BMP</strong></td>
-                                <td>Images bitmap</td>
-                                <td>Captures d'écran techniques</td>
-                            </tr>
-                            <tr>
-                                <td><strong>WEBP</strong></td>
-                                <td>Format web optimisé</td>
-                                <td>Photos optimisées pour web</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="feature-card">
+                    <h4>📄 Documents PDF</h4>
+                    <ul>
+                        <li>Extraction automatique du texte</li>
+                        <li>Analyse du contenu (plans, devis, rapports)</li>
+                        <li>Identification des exigences techniques</li>
+                        <li>Détection des normes applicables (CCQ, RBQ, CNB)</li>
+                    </ul>
                 </div>
 
-                <h3><span class="emoji">📄</span>Documents texte</h3>
-                
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Format</th>
-                                <th>Description</th>
-                                <th>Cas d'usage</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>PDF</strong></td>
-                                <td>Documents portables</td>
-                                <td>Plans, devis, rapports officiels</td>
-                            </tr>
-                            <tr>
-                                <td><strong>TXT</strong></td>
-                                <td>Texte simple</td>
-                                <td>Notes rapides, listes</td>
-                            </tr>
-                            <tr>
-                                <td><strong>MD</strong></td>
-                                <td>Markdown</td>
-                                <td>Documentation technique</td>
-                            </tr>
-                            <tr>
-                                <td><strong>RTF</strong></td>
-                                <td>Texte formaté</td>
-                                <td>Rapports avec mise en forme</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="feature-card">
+                    <h4>📊 Fichiers Excel</h4>
+                    <ul>
+                        <li>Lecture des données tabulaires</li>
+                        <li>Analyse des budgets et échéanciers</li>
+                        <li>Identification des écarts et tendances</li>
+                    </ul>
                 </div>
 
-                <h3><span class="emoji">📊</span>Tableurs et données</h3>
-                
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Format</th>
-                                <th>Description</th>
-                                <th>Cas d'usage</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>XLSX</strong></td>
-                                <td>Excel moderne</td>
-                                <td>Budgets, échéanciers, inventaires</td>
-                            </tr>
-                            <tr>
-                                <td><strong>XLS</strong></td>
-                                <td>Excel classique</td>
-                                <td>Anciens fichiers de suivi</td>
-                            </tr>
-                            <tr>
-                                <td><strong>CSV</strong></td>
-                                <td>Données séparées</td>
-                                <td>Exports de systèmes, listes</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="feature-card">
+                    <h4>📝 Documents Word</h4>
+                    <ul>
+                        <li>Extraction du texte formaté</li>
+                        <li>Analyse des spécifications techniques</li>
+                        <li>Identification des clauses importantes</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>3. Génération de rapports professionnels</h3>
+
+            <h4>Types de rapports disponibles</h4>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>📅 Rapport journalier de chantier</h4>
+                    <ul>
+                        <li>Conditions météo et impact</li>
+                        <li>Avancement des travaux par zone</li>
+                        <li>Main-d'œuvre présente (CCQ)</li>
+                        <li>Matériaux livrés et utilisés</li>
+                        <li>Problèmes rencontrés et solutions</li>
+                        <li>Planification du lendemain</li>
+                    </ul>
                 </div>
 
-                <h3><span class="emoji">🗂️</span>Documents Office</h3>
-                
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Format</th>
-                                <th>Description</th>
-                                <th>Cas d'usage</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>DOCX</strong></td>
-                                <td>Word moderne</td>
-                                <td>Spécifications, correspondances</td>
-                            </tr>
-                            <tr>
-                                <td><strong>DOC</strong></td>
-                                <td>Word classique</td>
-                                <td>Anciens documents contractuels</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="feature-card">
+                    <h4>🦺 Rapport de sécurité CNESST</h4>
+                    <ul>
+                        <li>Inspection des équipements</li>
+                        <li>Conformité aux normes</li>
+                        <li>Identification des risques</li>
+                        <li>Mesures correctives appliquées</li>
+                        <li>Formation du personnel</li>
+                        <li>Recommandations SST</li>
+                    </ul>
                 </div>
 
-                <div class="warning-card">
-                    <h4><span class="emoji">⚠️</span>Limites techniques</h4>
+                <div class="feature-card">
+                    <h4>📊 Rapport de projet complet</h4>
+                    <ul>
+                        <li>État d'avancement global</li>
+                        <li>Respect du budget et échéancier</li>
+                        <li>Qualité et conformité</li>
+                        <li>Gestion des changements</li>
+                        <li>Analyse des risques</li>
+                        <li>Prochaines étapes critiques</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Types de Documents -->
+        <section id="types-documents">
+            <h2>📁 Types de documents supportés</h2>
+
+            <h3>Images et photos</h3>
+            <div class="card">
+                <table>
+                    <tr>
+                        <th>Format</th>
+                        <th>Description</th>
+                        <th>Cas d'usage</th>
+                    </tr>
+                    <tr>
+                        <td><strong>JPG/JPEG</strong></td>
+                        <td>Photos standard</td>
+                        <td>Photos de chantier, avancement</td>
+                    </tr>
+                    <tr>
+                        <td><strong>PNG</strong></td>
+                        <td>Images haute qualité</td>
+                        <td>Plans scannés, détails techniques</td>
+                    </tr>
+                    <tr>
+                        <td><strong>GIF</strong></td>
+                        <td>Images animées</td>
+                        <td>Séquences de construction</td>
+                    </tr>
+                    <tr>
+                        <td><strong>BMP</strong></td>
+                        <td>Images bitmap</td>
+                        <td>Captures d'écran techniques</td>
+                    </tr>
+                    <tr>
+                        <td><strong>WEBP</strong></td>
+                        <td>Format web optimisé</td>
+                        <td>Photos optimisées pour web</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>Documents texte</h3>
+            <div class="card">
+                <table>
+                    <tr>
+                        <th>Format</th>
+                        <th>Description</th>
+                        <th>Cas d'usage</th>
+                    </tr>
+                    <tr>
+                        <td><strong>PDF</strong></td>
+                        <td>Documents portables</td>
+                        <td>Plans, devis, rapports officiels</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TXT</strong></td>
+                        <td>Texte simple</td>
+                        <td>Notes rapides, listes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>MD</strong></td>
+                        <td>Markdown</td>
+                        <td>Documentation technique</td>
+                    </tr>
+                    <tr>
+                        <td><strong>RTF</strong></td>
+                        <td>Texte formaté</td>
+                        <td>Rapports avec mise en forme</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>Tableurs et données</h3>
+            <div class="card">
+                <table>
+                    <tr>
+                        <th>Format</th>
+                        <th>Description</th>
+                        <th>Cas d'usage</th>
+                    </tr>
+                    <tr>
+                        <td><strong>XLSX</strong></td>
+                        <td>Excel moderne</td>
+                        <td>Budgets, échéanciers, inventaires</td>
+                    </tr>
+                    <tr>
+                        <td><strong>XLS</strong></td>
+                        <td>Excel classique</td>
+                        <td>Anciens fichiers de suivi</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CSV</strong></td>
+                        <td>Données séparées</td>
+                        <td>Exports de systèmes, listes</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>Limites techniques</h3>
+            <div class="alert alert-warning">
+                <span class="alert-icon">⚠️</span>
+                <div>
                     <ul>
                         <li><strong>Taille maximale</strong> : 200 MB par fichier</li>
                         <li><strong>Nombre de fichiers</strong> : 10 fichiers simultanément</li>
                         <li><strong>Formats supportés</strong> : Voir tableaux ci-dessus</li>
                     </ul>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section id="generation-de-rapports">
-                <h2><span class="emoji">📊</span>Génération de rapports</h2>
-                
-                <h3><span class="emoji">🔄</span>Processus de génération</h3>
+        <!-- Génération de Rapports -->
+        <section id="generation-rapports">
+            <h2>📊 Génération de rapports</h2>
 
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h4><span class="emoji">1️⃣</span>Collecte des données</h4>
-                        <ol>
-                            <li>Ajoutez vos notes de chantier dans les différentes catégories</li>
-                            <li>Uploadez et analysez vos documents et photos</li>
-                            <li>Complétez les informations contextuelles (localisation, responsables)</li>
-                        </ol>
-                    </div>
+            <h3>Processus de génération</h3>
 
-                    <div class="feature-card">
-                        <h4><span class="emoji">2️⃣</span>Sélection du rapport</h4>
-                        <p>Dans la barre latérale, section "📄 Génération de rapports" :</p>
-                        <ul>
-                            <li>Choisissez le type de rapport approprié</li>
-                            <li>Vérifiez que vous avez suffisamment de données</li>
-                        </ul>
-                    </div>
-
-                    <div class="feature-card">
-                        <h4><span class="emoji">3️⃣</span>Génération automatique</h4>
-                        <ul>
-                            <li>Cliquez sur "📝 Générer rapport"</li>
-                            <li>L'IA analyse toutes vos données</li>
-                            <li>Le rapport apparaît dans la colonne droite</li>
-                        </ul>
-                    </div>
-
-                    <div class="feature-card">
-                        <h4><span class="emoji">4️⃣</span>Export et sauvegarde</h4>
-                        <ul>
-                            <li><strong>📥 Télécharger JSON</strong> : Format de données structurées</li>
-                            <li><strong>📄 Télécharger Markdown</strong> : Format texte avec mise en forme</li>
-                            <li><strong>📋 Copier dans le presse-papier</strong> : Pour collage direct</li>
-                        </ul>
-                    </div>
+            <div class="workflow">
+                <div class="workflow-step">
+                    <div class="workflow-icon">📝</div>
+                    <h4>Collecte</h4>
+                    <p>Ajout notes et documents</p>
                 </div>
+                <div class="workflow-step">
+                    <div class="workflow-icon">📄</div>
+                    <h4>Sélection</h4>
+                    <p>Choix type de rapport</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-icon">🤖</div>
+                    <h4>Génération</h4>
+                    <p>Analyse IA automatique</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-icon">📥</div>
+                    <h4>Export</h4>
+                    <p>Sauvegarde et partage</p>
+                </div>
+            </div>
 
-                <h3><span class="emoji">📋</span>Structure des rapports</h3>
+            <div class="step-card">
+                <h4>Étape 1 : Collecte des données</h4>
+                <ol>
+                    <li>Ajoutez vos notes de chantier dans les différentes catégories</li>
+                    <li>Uploadez et analysez vos documents et photos</li>
+                    <li>Complétez les informations contextuelles (localisation, responsables)</li>
+                </ol>
+            </div>
 
-                <div class="info-card">
-                    <h4><span class="emoji">📅</span>Rapport journalier de chantier</h4>
-                    <div class="code-block"># RAPPORT JOURNALIER DE CHANTIER
+            <div class="step-card">
+                <h4>Étape 2 : Sélection du rapport</h4>
+                <p>Dans la barre latérale, section "📄 Génération de rapports" :</p>
+                <ul>
+                    <li>Choisissez le type de rapport approprié</li>
+                    <li>Vérifiez que vous avez suffisamment de données</li>
+                </ul>
+            </div>
+
+            <div class="step-card">
+                <h4>Étape 3 : Génération automatique</h4>
+                <ul>
+                    <li>Cliquez sur "📝 Générer rapport"</li>
+                    <li>L'IA analyse toutes vos données</li>
+                    <li>Le rapport apparaît dans la colonne droite</li>
+                </ul>
+            </div>
+
+            <div class="step-card">
+                <h4>Étape 4 : Export et sauvegarde</h4>
+                <ul>
+                    <li><strong>📥 Télécharger JSON</strong> : Format de données structurées</li>
+                    <li><strong>📄 Télécharger Markdown</strong> : Format texte avec mise en forme</li>
+                    <li><strong>📋 Copier dans le presse-papier</strong> : Pour collage direct</li>
+                </ul>
+            </div>
+
+            <h3>Structure des rapports</h3>
+            <div class="card">
+                <h4>Rapport journalier de chantier</h4>
+                <pre># RAPPORT JOURNALIER DE CHANTIER
 - Date et conditions météo
 - Projet et localisation
 
@@ -972,138 +1231,202 @@ streamlit run app.py</div>
 - Points d'attention
 
 ## 7. PHOTOS ET DOCUMENTS JOINTS
-- Références aux analyses</div>
-                </div>
+- Références aux analyses</pre>
+            </div>
 
-                <div class="success-card">
-                    <h4><span class="emoji">🎯</span>Personnalisation des rapports</h4>
-                    <p>Les rapports sont automatiquement adaptés selon :</p>
-                    <ul>
-                        <li><strong>Contexte québécois</strong> : Terminologie appropriée</li>
-                        <li><strong>Normes intégrées</strong> : CCQ, RBQ, CNESST, CNB</li>
-                        <li><strong>Saison</strong> : Conditions hivernales prises en compte</li>
-                        <li><strong>Type de projet</strong> : Résidentiel, commercial, industriel</li>
-                    </ul>
-                </div>
-            </section>
+            <h3>Personnalisation des rapports</h3>
+            <p>Les rapports sont automatiquement adaptés selon :</p>
+            <ul>
+                <li><strong>Contexte québécois</strong> : Terminologie appropriée</li>
+                <li><strong>Normes intégrées</strong> : CCQ, RBQ, CNESST, CNB</li>
+                <li><strong>Saison</strong> : Conditions hivernales prises en compte</li>
+                <li><strong>Type de projet</strong> : Résidentiel, commercial, industriel</li>
+            </ul>
+        </section>
 
-            <section id="cas-dusage-pratiques">
-                <h2><span class="emoji">🎯</span>Cas d'usage pratiques</h2>
-                
-                <h3><span class="emoji">👷</span>Pour entrepreneurs généraux</h3>
+        <!-- Cas d'Usage Pratiques -->
+        <section id="cas-usage">
+            <h2>🎯 Cas d'usage pratiques</h2>
 
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h4><span class="emoji">🌅</span>Coordination quotidienne</h4>
-                        <ol>
-                            <li><strong>Matin</strong> : Photos de l'état des zones de travail</li>
-                            <li><strong>Journée</strong> : Notes par corps de métier, livraisons</li>
-                            <li><strong>Soir</strong> : Génération du rapport journalier</li>
-                            <li><strong>Export</strong> : Envoi automatique aux clients</li>
-                        </ol>
-                    </div>
+            <h3>Pour entrepreneurs généraux</h3>
 
-                    <div class="feature-card">
-                        <h4><span class="emoji">💰</span>Suivi budgétaire</h4>
-                        <ol>
-                            <li><strong>Upload</strong> : Factures et bons de commande</li>
-                            <li><strong>Analyse</strong> : Détection automatique des écarts</li>
-                            <li><strong>Rapport</strong> : Synthèse financière intégrée</li>
-                            <li><strong>Action</strong> : Recommandations d'ajustement</li>
-                        </ol>
-                    </div>
-                </div>
-
-                <h3><span class="emoji">🔧</span>Pour sous-traitants spécialisés</h3>
-
-                <div class="info-card">
-                    <h4><span class="emoji">📋</span>Documentation métier</h4>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Coordination quotidienne</h4>
                     <ol>
-                        <li><strong>Spécialisation</strong> : Notes techniques par métier</li>
-                        <li><strong>Conformité</strong> : Vérification normes spécifiques</li>
-                        <li><strong>Coordination</strong> : Communication avec entrepreneur général</li>
-                        <li><strong>Facturation</strong> : Justificatifs d'avancement</li>
+                        <li><strong>Matin</strong> : Photos de l'état des zones de travail</li>
+                        <li><strong>Journée</strong> : Notes par corps de métier, livraisons</li>
+                        <li><strong>Soir</strong> : Génération du rapport journalier</li>
+                        <li><strong>Export</strong> : Envoi automatique aux clients</li>
                     </ol>
                 </div>
 
-                <div class="success-card">
-                    <h4><span class="emoji">⚡</span>Exemple : Électricien</h4>
-                    <div class="code-block">Catégorie : Avancement des travaux
+                <div class="feature-card">
+                    <h4>Suivi budgétaire</h4>
+                    <ol>
+                        <li><strong>Upload</strong> : Factures et bons de commande</li>
+                        <li><strong>Analyse</strong> : Détection automatique des écarts</li>
+                        <li><strong>Rapport</strong> : Synthèse financière intégrée</li>
+                        <li><strong>Action</strong> : Recommandations d'ajustement</li>
+                    </ol>
+                </div>
+            </div>
+
+            <h3>Pour sous-traitants spécialisés</h3>
+
+            <div class="card">
+                <h4>Documentation métier</h4>
+                <ol>
+                    <li><strong>Spécialisation</strong> : Notes techniques par métier</li>
+                    <li><strong>Conformité</strong> : Vérification normes spécifiques</li>
+                    <li><strong>Coordination</strong> : Communication avec entrepreneur général</li>
+                    <li><strong>Facturation</strong> : Justificatifs d'avancement</li>
+                </ol>
+
+                <h5>Exemple : Électricien</h5>
+                <div class="note-example">
+Catégorie : Avancement des travaux
 Note : Installation du panneau électrique principal 200A
        Câblage des circuits 15A terminé au 1er étage
        En attente : Inspection électrique RBQ prévue demain
 Localisation : Sous-sol technique, 1er étage
-Responsable : Marc Dubois, Maître électricien</div>
+Responsable : Marc Dubois, Maître électricien
                 </div>
+            </div>
 
-                <h3><span class="emoji">📊</span>Pour gestionnaires de projet</h3>
+            <h3>Pour inspecteurs et surveillants</h3>
 
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h4><span class="emoji">🏗️</span>Vue d'ensemble multi-chantiers</h4>
-                        <ol>
-                            <li><strong>Consolidation</strong> : Rapports de tous les chantiers</li>
-                            <li><strong>Analyse</strong> : Identification des tendances</li>
-                            <li><strong>Prévision</strong> : Anticipation des problèmes</li>
-                            <li><strong>Reporting</strong> : Synthèse pour la direction</li>
-                        </ol>
-                    </div>
+            <div class="card">
+                <h4>Documentation de conformité</h4>
+                <ol>
+                    <li><strong>Inspection</strong> : Photos avec analyse automatique</li>
+                    <li><strong>Non-conformités</strong> : Identification et documentation</li>
+                    <li><strong>Suivi</strong> : Actions correctives et délais</li>
+                    <li><strong>Rapport</strong> : Conforme aux exigences CNESST</li>
+                </ol>
 
-                    <div class="feature-card">
-                        <h4><span class="emoji">📈</span>Tableau de bord</h4>
-                        <ul>
-                            <li><strong>Métriques</strong> : Nombre de notes, documents, communications</li>
-                            <li><strong>Répartition</strong> : Notes par catégorie de chantier</li>
-                            <li><strong>Tendances</strong> : Évolution dans le temps</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <h3><span class="emoji">🔍</span>Pour inspecteurs et surveillants</h3>
-
-                <div class="info-card">
-                    <h4><span class="emoji">✅</span>Documentation de conformité</h4>
-                    <ol>
-                        <li><strong>Inspection</strong> : Photos avec analyse automatique</li>
-                        <li><strong>Non-conformités</strong> : Identification et documentation</li>
-                        <li><strong>Suivi</strong> : Actions correctives et délais</li>
-                        <li><strong>Rapport</strong> : Conforme aux exigences CNESST</li>
-                    </ol>
-                </div>
-
-                <div class="warning-card">
-                    <h4><span class="emoji">🦺</span>Exemple : Inspection sécurité</h4>
-                    <div class="code-block">Catégorie : Sécurité et conformité
+                <h5>Exemple : Inspection sécurité</h5>
+                <div class="note-example">
+Catégorie : Sécurité et conformité
 Note : Inspection des équipements de protection individuelle
        - 15 casques conformes CSA
        - 2 harnais à remplacer (usure excessive)
        - Formation rappel sécurité requise pour 3 employés
 Localisation : Zone échafaudage, façade sud
-Responsable : Sophie Martin, Préventionniste CNESST</div>
+Responsable : Sophie Martin, Préventionniste CNESST
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section id="depannage">
-                <h2><span class="emoji">🔧</span>Dépannage</h2>
-                
-                <h3><span class="emoji">❌</span>Problèmes de configuration API</h3>
+        <!-- Bonnes Pratiques -->
+        <section id="bonnes-pratiques">
+            <h2>✅ Bonnes pratiques</h2>
 
-                <div class="danger-card">
-                    <h4><span class="emoji">🚫</span>Erreur : "Client Anthropic non disponible"</h4>
-                    <p><strong>Cause</strong> : Clé API non configurée ou invalide</p>
-                    <p><strong>Solutions</strong> :</p>
+            <h3>Prise de notes efficace</h3>
+
+            <h4>Organisation quotidienne</h4>
+            <ol>
+                <li><strong>Commencez tôt</strong> : Première note dès l'arrivée sur chantier</li>
+                <li><strong>Soyez régulier</strong> : Notes toutes les 2-3 heures minimum</li>
+                <li><strong>Contextualisez</strong> : Toujours préciser lieu et responsable</li>
+                <li><strong>Photographiez</strong> : Une image vaut mille mots</li>
+            </ol>
+
+            <h4>Catégorisation</h4>
+            <ul>
+                <li><strong>Utilisez les bonnes catégories</strong> : Facilite la génération de rapports</li>
+                <li><strong>Soyez spécifique</strong> : "Avancement des travaux" plutôt qu'"Autre"</li>
+                <li><strong>Détaillez la localisation</strong> : "2e étage, appartement 204" vs "2e étage"</li>
+            </ul>
+
+            <h4>Contenu des notes</h4>
+
+            <h5>✅ BONNE PRATIQUE :</h5>
+            <div class="note-example">
+Catégorie : Avancement des travaux
+Note : Coulée de béton dalle 2e étage terminée à 14h30
+       Volume : 85 m³, résistance 25 MPa
+       Température extérieure : -8°C
+       Protection thermique installée (bâches chauffantes)
+       Cure débutera demain matin si température stable
+Localisation : 2e étage, dalle principale
+Responsable : Pierre Lavoie, contremaître béton
+            </div>
+
+            <h5>❌ À ÉVITER :</h5>
+            <div class="note-bad-example">
+Catégorie : Autre
+Note : Béton coulé
+Localisation : 2e
+Responsable : Pierre
+            </div>
+
+            <h3>Gestion des documents</h3>
+
+            <h4>Upload optimal</h4>
+            <ul>
+                <li><strong>Nommage</strong> : Utilisez des noms explicites
+                    <ul>
+                        <li>✅ "Plan_electrique_2e_etage_rev3.pdf"</li>
+                        <li>❌ "plan.pdf"</li>
+                    </ul>
+                </li>
+                <li><strong>Qualité</strong> : Privilégiez la haute résolution pour les images</li>
+                <li><strong>Format</strong> : Utilisez PDF pour documents officiels</li>
+                <li><strong>Taille</strong> : Compressez si > 50 MB pour accélérer l'analyse</li>
+            </ul>
+
+            <h4>Types de photos recommandées</h4>
+            <ol>
+                <li><strong>Vues d'ensemble</strong> : Contexte général de la zone</li>
+                <li><strong>Détails techniques</strong> : Assemblages, connections</li>
+                <li><strong>Problèmes</strong> : Non-conformités, défauts</li>
+                <li><strong>Avancement</strong> : Comparaison avant/après</li>
+                <li><strong>Sécurité</strong> : Équipements, signalisation</li>
+            </ol>
+
+            <h3>Sécurité et confidentialité</h3>
+
+            <h4>Protection des données</h4>
+            <ul>
+                <li><strong>Clé API</strong> : Ne partagez jamais votre clé</li>
+                <li><strong>Documents</strong> : Vérifiez la confidentialité avant upload</li>
+                <li><strong>Export</strong> : Chiffrez les fichiers sensibles</li>
+                <li><strong>Accès</strong> : Contrôlez qui utilise l'application</li>
+            </ul>
+
+            <h4>Conformité légale</h4>
+            <ul>
+                <li><strong>CNESST</strong> : Conservez les rapports de sécurité 5 ans</li>
+                <li><strong>RBQ</strong> : Documentez selon exigences de garantie</li>
+                <li><strong>CCQ</strong> : Respectez les obligations de formation</li>
+                <li><strong>Client</strong> : Suivez les clauses contractuelles</li>
+            </ul>
+        </section>
+
+        <!-- Dépannage -->
+        <section id="depannage">
+            <h2>🔧 Dépannage</h2>
+
+            <h3>Problèmes de configuration API</h3>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>❌ "Client Anthropic non disponible"</h4>
+                    <p><strong>Cause :</strong> Clé API non configurée ou invalide</p>
+                    <p><strong>Solutions :</strong></p>
                     <ol>
-                        <li>Vérifiez que votre clé commence par <span class="inline-code">sk-ant-api03-</span></li>
+                        <li>Vérifiez que votre clé commence par <code>sk-ant-api03-</code></li>
                         <li>Testez la clé sur console.anthropic.com</li>
                         <li>Utilisez le bouton "🧪 Test Direct (Méthode EXPERTS IA)"</li>
                         <li>Redémarrez l'application après configuration</li>
                     </ol>
                 </div>
 
-                <div class="warning-card">
-                    <h4><span class="emoji">🌐</span>Erreur : "Connexion API échouée"</h4>
-                    <p><strong>Cause</strong> : Problème réseau ou proxy</p>
-                    <p><strong>Solutions</strong> :</p>
+                <div class="feature-card">
+                    <h4>❌ "Connexion API échouée"</h4>
+                    <p><strong>Cause :</strong> Problème réseau ou proxy</p>
+                    <p><strong>Solutions :</strong></p>
                     <ol>
                         <li>Vérifiez votre connexion Internet</li>
                         <li>Testez l'accès à https://api.anthropic.com</li>
@@ -1111,13 +1434,15 @@ Responsable : Sophie Martin, Préventionniste CNESST</div>
                         <li>Utilisez le bouton "🔧 Debug Système" pour diagnostic</li>
                     </ol>
                 </div>
+            </div>
 
-                <h3><span class="emoji">🐍</span>Problèmes d'installation</h3>
+            <h3>Problèmes d'installation</h3>
 
-                <div class="danger-card">
-                    <h4><span class="emoji">❌</span>Python non trouvé</h4>
-                    <p><strong>Cause</strong> : Python non installé ou pas dans le PATH</p>
-                    <p><strong>Solutions</strong> :</p>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>❌ Python non trouvé</h4>
+                    <p><strong>Cause :</strong> Python non installé ou pas dans le PATH</p>
+                    <p><strong>Solutions :</strong></p>
                     <ol>
                         <li>Installez Python depuis python.org</li>
                         <li>Cochez "Add Python to PATH" durant l'installation</li>
@@ -1126,307 +1451,298 @@ Responsable : Sophie Martin, Préventionniste CNESST</div>
                     </ol>
                 </div>
 
-                <div class="warning-card">
-                    <h4><span class="emoji">📦</span>Dépendances manquantes</h4>
-                    <p><strong>Cause</strong> : Installation incomplète des packages</p>
-                    <p><strong>Solutions</strong> :</p>
-                    <div class="code-block"># Mise à jour pip
+                <div class="feature-card">
+                    <h4>❌ Dépendances manquantes</h4>
+                    <p><strong>Cause :</strong> Installation incomplète des packages</p>
+                    <p><strong>Solutions :</strong></p>
+                    <pre># Mise à jour pip
 python -m pip install --upgrade pip
 
 # Installation forcée
 pip install -r requirements.txt --force-reinstall
 
 # Installation individuelle si problème
-pip install streamlit anthropic Pillow python-dotenv PyPDF2 pandas python-docx openpyxl</div>
+pip install streamlit anthropic Pillow python-dotenv PyPDF2 pandas python-docx openpyxl</pre>
                 </div>
+            </div>
 
-                <h3><span class="emoji">📄</span>Problèmes d'analyse de fichiers</h3>
+            <h3>Codes d'erreur courants</h3>
+            <div class="card">
+                <table>
+                    <tr>
+                        <th>Code</th>
+                        <th>Message</th>
+                        <th>Cause</th>
+                        <th>Solution</th>
+                    </tr>
+                    <tr>
+                        <td>API_001</td>
+                        <td>"Client Anthropic non disponible"</td>
+                        <td>Clé API manquante</td>
+                        <td>Configurer la clé API</td>
+                    </tr>
+                    <tr>
+                        <td>API_002</td>
+                        <td>"Erreur d'authentification"</td>
+                        <td>Clé API invalide</td>
+                        <td>Vérifier la clé API</td>
+                    </tr>
+                    <tr>
+                        <td>FILE_001</td>
+                        <td>"Fichier trop volumineux"</td>
+                        <td>Taille > 200 MB</td>
+                        <td>Compresser ou diviser</td>
+                    </tr>
+                    <tr>
+                        <td>FILE_002</td>
+                        <td>"Format non supporté"</td>
+                        <td>Extension non reconnue</td>
+                        <td>Convertir au bon format</td>
+                    </tr>
+                </table>
+            </div>
 
-                <div class="warning-card">
-                    <h4><span class="emoji">📋</span>"PDF vide ou impossible à lire"</h4>
-                    <p><strong>Cause</strong> : PDF scanné ou protégé</p>
-                    <p><strong>Solutions</strong> :</p>
-                    <ol>
-                        <li>Utilisez un PDF avec texte sélectionnable</li>
-                        <li>Convertissez les PDF scannés avec OCR</li>
-                        <li>Exportez depuis le logiciel original si possible</li>
-                    </ol>
+            <div class="alert alert-info">
+                <span class="alert-icon">🔧</span>
+                <div>
+                    <strong>Diagnostic système</strong><br>
+                    Utilisez le bouton "🔧 Debug Système" pour obtenir les versions des modules Python installés, la connectivité aux serveurs Anthropic, la configuration des proxies et DNS, et les fichiers de configuration présents.
                 </div>
+            </div>
+        </section>
 
-                <div class="danger-card">
-                    <h4><span class="emoji">🖼️</span>"Erreur d'analyse d'image"</h4>
-                    <p><strong>Cause</strong> : Format non supporté ou fichier corrompu</p>
-                    <p><strong>Solutions</strong> :</p>
-                    <ol>
-                        <li>Convertissez en JPG ou PNG</li>
-                        <li>Réduisez la taille si > 200 MB</li>
-                        <li>Vérifiez que l'image n'est pas corrompue</li>
-                    </ol>
-                </div>
+        <!-- Support Technique -->
+        <section id="support-technique">
+            <h2>🆘 Support technique</h2>
 
-                <div class="info-card">
-                    <h4><span class="emoji">🔧</span>Diagnostic système</h4>
-                    <p>Utilisez le bouton "🔧 Debug Système" pour obtenir :</p>
+            <h3>Ressources d'aide</h3>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>📚 Documentation</h4>
                     <ul>
-                        <li><strong>Versions</strong> des modules Python installés</li>
-                        <li><strong>Connectivité</strong> aux serveurs Anthropic</li>
-                        <li><strong>Configuration</strong> des proxies et DNS</li>
-                        <li><strong>Fichiers</strong> de configuration présents</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section id="bonnes-pratiques">
-                <h2><span class="emoji">✅</span>Bonnes pratiques</h2>
-                
-                <h3><span class="emoji">📝</span>Prise de notes efficace</h3>
-
-                <div class="info-card">
-                    <h4><span class="emoji">📅</span>Organisation quotidienne</h4>
-                    <ol>
-                        <li><strong>Commencez tôt</strong> : Première note dès l'arrivée sur chantier</li>
-                        <li><strong>Soyez régulier</strong> : Notes toutes les 2-3 heures minimum</li>
-                        <li><strong>Contextualisez</strong> : Toujours préciser lieu et responsable</li>
-                        <li><strong>Photographiez</strong> : Une image vaut mille mots</li>
-                    </ol>
-                </div>
-
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h4><span class="emoji">📋</span>Catégorisation</h4>
-                        <ul>
-                            <li><strong>Utilisez les bonnes catégories</strong> : Facilite la génération de rapports</li>
-                            <li><strong>Soyez spécifique</strong> : "Avancement des travaux" plutôt qu'"Autre"</li>
-                            <li><strong>Détaillez la localisation</strong> : "2e étage, appartement 204" vs "2e étage"</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="success-card">
-                    <h4><span class="emoji">✅</span>BONNE PRATIQUE</h4>
-                    <div class="code-block">Catégorie : Avancement des travaux
-Note : Coulée de béton dalle 2e étage terminée à 14h30
-       Volume : 85 m³, résistance 25 MPa
-       Température extérieure : -8°C
-       Protection thermique installée (bâches chauffantes)
-       Cure débutera demain matin si température stable
-Localisation : 2e étage, dalle principale
-Responsable : Pierre Lavoie, contremaître béton</div>
-                </div>
-
-                <div class="danger-card">
-                    <h4><span class="emoji">❌</span>À ÉVITER</h4>
-                    <div class="code-block">Catégorie : Autre
-Note : Béton coulé
-Localisation : 2e
-Responsable : Pierre</div>
-                </div>
-
-                <h3><span class="emoji">📁</span>Gestion des documents</h3>
-
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h4><span class="emoji">📤</span>Upload optimal</h4>
-                        <ul>
-                            <li><strong>Nommage</strong> : Utilisez des noms explicites
-                                <ul>
-                                    <li>✅ "Plan_electrique_2e_etage_rev3.pdf"</li>
-                                    <li>❌ "plan.pdf"</li>
-                                </ul>
-                            </li>
-                            <li><strong>Qualité</strong> : Privilégiez la haute résolution pour les images</li>
-                            <li><strong>Format</strong> : Utilisez PDF pour documents officiels</li>
-                            <li><strong>Taille</strong> : Compressez si > 50 MB pour accélérer l'analyse</li>
-                        </ul>
-                    </div>
-
-                    <div class="feature-card">
-                        <h4><span class="emoji">📷</span>Types de photos recommandées</h4>
-                        <ol>
-                            <li><strong>Vues d'ensemble</strong> : Contexte général de la zone</li>
-                            <li><strong>Détails techniques</strong> : Assemblages, connections</li>
-                            <li><strong>Problèmes</strong> : Non-conformités, défauts</li>
-                            <li><strong>Avancement</strong> : Comparaison avant/après</li>
-                            <li><strong>Sécurité</strong> : Équipements, signalisation</li>
-                        </ol>
-                    </div>
-                </div>
-
-                <h3><span class="emoji">📊</span>Génération de rapports</h3>
-
-                <div class="info-card">
-                    <h4><span class="emoji">🔍</span>Préparation</h4>
-                    <ul>
-                        <li><strong>Complétude</strong> : Vérifiez toutes les catégories pertinentes</li>
-                        <li><strong>Cohérence</strong> : Dates et localisations cohérentes</li>
-                        <li><strong>Qualité</strong> : Relisez vos notes avant génération</li>
+                        <li>Manuel utilisateur : Ce document</li>
+                        <li>README.md : Instructions d'installation</li>
+                        <li>Code source : app.py avec commentaires détaillés</li>
                     </ul>
                 </div>
 
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h4><span class="emoji">📅</span>Fréquence recommandée</h4>
-                        <ul>
-                            <li><strong>Rapport journalier</strong> : Chaque jour de travail</li>
-                            <li><strong>Rapport sécurité</strong> : Hebdomadaire ou après incident</li>
-                            <li><strong>Rapport projet</strong> : Mensuel ou jalons importants</li>
-                        </ul>
-                    </div>
-
-                    <div class="feature-card">
-                        <h4><span class="emoji">💾</span>Export et archivage</h4>
-                        <ol>
-                            <li><strong>Format JSON</strong> : Sauvegarde complète des données</li>
-                            <li><strong>Format Markdown</strong> : Lecture et impression</li>
-                            <li><strong>Archivage</strong> : Organisez par date et projet</li>
-                            <li><strong>Backup</strong> : Sauvegarde externe recommandée</li>
-                        </ol>
-                    </div>
-                </div>
-
-                <h3><span class="emoji">🔐</span>Sécurité et confidentialité</h3>
-
-                <div class="warning-card">
-                    <h4><span class="emoji">🔒</span>Protection des données</h4>
+                <div class="feature-card">
+                    <h4>👥 Communauté</h4>
                     <ul>
-                        <li><strong>Clé API</strong> : Ne partagez jamais votre clé</li>
-                        <li><strong>Documents</strong> : Vérifiez la confidentialité avant upload</li>
-                        <li><strong>Export</strong> : Chiffrez les fichiers sensibles</li>
-                        <li><strong>Accès</strong> : Contrôlez qui utilise l'application</li>
+                        <li>Issues GitHub : Signalement de bugs</li>
+                        <li>Demandes de fonctionnalités : Suggestions d'amélioration</li>
+                        <li>Forum : Échanges entre utilisateurs</li>
                     </ul>
                 </div>
 
-                <div class="info-card">
-                    <h4><span class="emoji">⚖️</span>Conformité légale</h4>
+                <div class="feature-card">
+                    <h4>🛠️ Développeur</h4>
+                    <p><strong>Nom :</strong> Sylvain Leduc<br>
+                    <strong>Spécialisation :</strong> Applications IA pour la construction<br>
+                    <strong>Réponse :</strong> 24-48h en général</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🌐 Ressources externes</h4>
                     <ul>
-                        <li><strong>CNESST</strong> : Conservez les rapports de sécurité 5 ans</li>
-                        <li><strong>RBQ</strong> : Documentez selon exigences de garantie</li>
-                        <li><strong>CCQ</strong> : Respectez les obligations de formation</li>
-                        <li><strong>Client</strong> : Suivez les clauses contractuelles</li>
+                        <li>CCQ : www.ccq.org</li>
+                        <li>RBQ : www.rbq.gouv.qc.ca</li>
+                        <li>CNESST : www.cnesst.gouv.qc.ca</li>
+                        <li>APCHQ : www.apchq.com</li>
                     </ul>
                 </div>
-            </section>
+            </div>
 
-            <section id="support-technique">
-                <h2><span class="emoji">🆘</span>Support technique</h2>
-                
-                <h3><span class="emoji">📚</span>Ressources d'aide</h3>
+            <h3>Types de support disponibles</h3>
 
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h4><span class="emoji">📖</span>Documentation</h4>
-                        <ul>
-                            <li><strong>Manuel utilisateur</strong> : Ce document</li>
-                            <li><strong>README.md</strong> : Instructions d'installation</li>
-                            <li><strong>Code source</strong> : app.py avec commentaires détaillés</li>
-                        </ul>
-                    </div>
-
-                    <div class="feature-card">
-                        <h4><span class="emoji">👥</span>Communauté</h4>
-                        <ul>
-                            <li><strong>Issues GitHub</strong> : Signalement de bugs</li>
-                            <li><strong>Demandes de fonctionnalités</strong> : Suggestions d'amélioration</li>
-                            <li><strong>Forum</strong> : Échanges entre utilisateurs</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <h3><span class="emoji">🤝</span>Contact support</h3>
-
-                <div class="info-card">
-                    <h4><span class="emoji">👨‍💻</span>Développeur</h4>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>🐛 Bugs et erreurs</h4>
                     <ul>
-                        <li><strong>Nom</strong> : Sylvain Leduc</li>
-                        <li><strong>Spécialisation</strong> : Applications IA pour la construction</li>
-                        <li><strong>Réponse</strong> : 24-48h en général</li>
+                        <li>Description détaillée du problème</li>
+                        <li>Étapes pour reproduire</li>
+                        <li>Captures d'écran si pertinent</li>
+                        <li>Informations système (via Debug)</li>
                     </ul>
                 </div>
 
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h4><span class="emoji">🐛</span>Bugs et erreurs</h4>
-                        <ul>
-                            <li>Description détaillée du problème</li>
-                            <li>Étapes pour reproduire</li>
-                            <li>Captures d'écran si pertinent</li>
-                            <li>Informations système (via Debug)</li>
-                        </ul>
-                    </div>
-
-                    <div class="feature-card">
-                        <h4><span class="emoji">💡</span>Demandes de fonctionnalités</h4>
-                        <ul>
-                            <li>Description du besoin métier</li>
-                            <li>Cas d'usage concrets</li>
-                            <li>Priorité et délais souhaités</li>
-                        </ul>
-                    </div>
-
-                    <div class="feature-card">
-                        <h4><span class="emoji">📚</span>Formation et conseil</h4>
-                        <ul>
-                            <li>Formation utilisateurs</li>
-                            <li>Personnalisation métier</li>
-                            <li>Intégration systèmes existants</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <h3><span class="emoji">🚀</span>Évolutions prévues</h3>
-
-                <div class="expert-grid">
-                    <div class="expert-card">
-                        <h4><span class="emoji">⏭️</span>Court terme (3-6 mois)</h4>
-                        <ul>
-                            <li><strong>Géolocalisation</strong> : GPS automatique des notes</li>
-                            <li><strong>Templates</strong> : Modèles de rapports personnalisés</li>
-                            <li><strong>Export PDF</strong> : Génération directe de PDF professionnels</li>
-                            <li><strong>Mode hors-ligne</strong> : Fonctionnalités de base sans Internet</li>
-                        </ul>
-                    </div>
-
-                    <div class="expert-card">
-                        <h4><span class="emoji">📱</span>Moyen terme (6-12 mois)</h4>
-                        <ul>
-                            <li><strong>Application mobile</strong> : Version native iOS/Android</li>
-                            <li><strong>Synchronisation</strong> : Multi-appareils avec cloud</li>
-                            <li><strong>API entreprise</strong> : Intégration logiciels de gestion</li>
-                            <li><strong>Reconnaissance vocale</strong> : Transcription automatique français québécois</li>
-                        </ul>
-                    </div>
-
-                    <div class="expert-card">
-                        <h4><span class="emoji">🔮</span>Long terme (12+ mois)</h4>
-                        <ul>
-                            <li><strong>IA spécialisée</strong> : Modèles entraînés construction québécoise</li>
-                            <li><strong>Réalité augmentée</strong> : Superposition d'informations sur photos</li>
-                            <li><strong>Blockchain</strong> : Traçabilité et authentification des rapports</li>
-                            <li><strong>IoT</strong> : Intégration capteurs et équipements connectés</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="success-card">
-                    <h4><span class="emoji">🔗</span>Ressources utiles</h4>
+                <div class="feature-card">
+                    <h4>💡 Demandes de fonctionnalités</h4>
                     <ul>
-                        <li><strong>CCQ</strong> : www.ccq.org - Commission de la construction du Québec</li>
-                        <li><strong>RBQ</strong> : www.rbq.gouv.qc.ca - Régie du bâtiment du Québec</li>
-                        <li><strong>CNESST</strong> : www.cnesst.gouv.qc.ca - Santé et sécurité du travail</li>
-                        <li><strong>APCHQ</strong> : www.apchq.com - Association provinciale des constructeurs d'habitations du Québec</li>
+                        <li>Description du besoin métier</li>
+                        <li>Cas d'usage concrets</li>
+                        <li>Priorité et délais souhaités</li>
                     </ul>
                 </div>
-            </section>
 
-        </div>
+                <div class="feature-card">
+                    <h4>📚 Formation et conseil</h4>
+                    <ul>
+                        <li>Formation utilisateurs</li>
+                        <li>Personnalisation métier</li>
+                        <li>Intégration systèmes existants</li>
+                    </ul>
+                </div>
+            </div>
 
-        <footer class="footer">
-            <p><em>© 2025 NOTE AI - Tous droits réservés</em></p>
-            <p><em>Développé par Sylvain Leduc - Constructo AI</em></p>
-            <p><em>Version : 2.0.0 | Dernière mise à jour : Janvier 2025</em></p>
-            <p><em>Propulsé par : Claude Opus 4 - Anthropic</em></p>
-            <p><em>NOTE AI - Votre assistant intelligent pour documenter et gérer vos chantiers de construction au Québec !</em></p>
-        </footer>
+            <h3>Évolutions prévues</h3>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Court terme (3-6 mois)</h4>
+                    <ul>
+                        <li><strong>Géolocalisation</strong> : GPS automatique des notes</li>
+                        <li><strong>Templates</strong> : Modèles de rapports personnalisés</li>
+                        <li><strong>Export PDF</strong> : Génération directe de PDF professionnels</li>
+                        <li><strong>Mode hors-ligne</strong> : Fonctionnalités de base sans Internet</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h4>Moyen terme (6-12 mois)</h4>
+                    <ul>
+                        <li><strong>Application mobile</strong> : Version native iOS/Android</li>
+                        <li><strong>Synchronisation</strong> : Multi-appareils avec cloud</li>
+                        <li><strong>API entreprise</strong> : Intégration logiciels de gestion</li>
+                        <li><strong>Reconnaissance vocale</strong> : Transcription automatique français québécois</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h4>Long terme (12+ mois)</h4>
+                    <ul>
+                        <li><strong>IA spécialisée</strong> : Modèles entraînés construction québécoise</li>
+                        <li><strong>Réalité augmentée</strong> : Superposition d'informations sur photos</li>
+                        <li><strong>Blockchain</strong> : Traçabilité et authentification des rapports</li>
+                        <li><strong>IoT</strong> : Intégration capteurs et équipements connectés</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="alert alert-success">
+                <span class="alert-icon">📖</span>
+                <div>
+                    <strong>NOTE AI - Votre assistant intelligent pour documenter et gérer vos chantiers de construction au Québec !</strong><br>
+                    Optimisez votre productivité avec l'intelligence artificielle Claude Opus 4 d'Anthropic.
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid var(--border-color); text-align: center; color: var(--text-color-light);">
+                <p><strong>© 2025 Sylvain Leduc - Tous droits réservés</strong></p>
+                <p><strong>Version du manuel :</strong> 2.0.0 - Janvier 2025</p>
+                <p><strong>Prochaine révision :</strong> Avril 2025</p>
+                <p><em>Licence MIT - Utilisation commerciale permise</em></p>
+            </div>
+        </section>
     </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Navigation active link
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section');
+
+        function setActiveLink() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', setActiveLink);
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const allSections = document.querySelectorAll('section');
+            
+            allSections.forEach(section => {
+                const text = section.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Print functionality
+        window.addEventListener('beforeprint', function() {
+            document.body.classList.add('printing');
+        });
+
+        window.addEventListener('afterprint', function() {
+            document.body.classList.remove('printing');
+        });
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.createElement('button');
+        mobileMenuToggle.innerHTML = '☰';
+        mobileMenuToggle.style.cssText = `
+            display: none;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 1000;
+            padding: 0.5rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+        `;
+
+        document.body.appendChild(mobileMenuToggle);
+
+        mobileMenuToggle.addEventListener('click', function() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        });
+
+        // Show mobile menu button on small screens
+        function checkMobile() {
+            if (window.innerWidth <= 768) {
+                mobileMenuToggle.style.display = 'block';
+            } else {
+                mobileMenuToggle.style.display = 'none';
+                document.getElementById('sidebar').classList.remove('active');
+            }
+        }
+
+        window.addEventListener('resize', checkMobile);
+        checkMobile();
+
+        // Initialize
+        setActiveLink();
+    </script>
 </body>
 </html>
